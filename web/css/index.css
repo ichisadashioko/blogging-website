@@ -49,6 +49,14 @@ a [class^=icon-] {
     content: '\e83d';
 }
 
+.icon-comment::before {
+    content: '\e84d';
+}
+
+.icon-thumbs-up::before {
+    content: '\e848';
+}
+
 .blog .avatar [class^=icon-],
 .blog .avatar [class*=" icon-"] {
     font-size: 40px;
@@ -456,7 +464,10 @@ ul.pager>li>a {
     background: rgba(0, 0, 0, .25);
     width: 100%;
 }
+
+
 /****************About*****************/
+
 body .wrapper .content .row-fluid {
     width: 100%;
 }
@@ -508,4 +519,54 @@ body .section.margins-on {
     font-size: 40px;
     line-height: 60px;
 }
+
+
 /****************Overview*********************/
+
+.wrapper>.heading+.content {
+    padding-top: 11px;
+}
+
+.wrapper>.content {
+    padding: 22px 0;
+    margin: 0
+}
+
+.wrapper>.content>:last-child {
+    margin-bottom: 0;
+}
+
+.section:first-child {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
+    background-color: rgba(0, 0, 0, 0);
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.table thead th {
+    vertical-align: bottom;
+}
+
+.table th {
+    font-weight: 400;
+}
+
+.table th,
+table td {
+    padding: 8px;
+    line-height: 22px;
+    text-align: left;
+    border-top: 1px solid #ddd;
+}
+
+.table th.align-right,
+.table td.align-right {
+    text-align: right;
+}
