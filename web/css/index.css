@@ -5,9 +5,17 @@
 
 @font-face {
     font-family: SimpleSite;
-    src: url(../fonts/simplesite-webfont-2.ttf) format('truetype'),url(../fonts/simplesite-webfont-2.svg#simplesite) format('svg');
+    src: url(../fonts/simplesite-webfont-2.ttf) format('truetype'), url(../fonts/simplesite-webfont-2.svg#simplesite) format('svg');
     font-weight: 400;
     font-style: normal
+}
+
+@font-face {
+    font-family: 'Pacifico';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Pacifico Regular'), local('Pacifico-Regular'), url(../fonts/pacifico.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 [class^=icon-],
@@ -48,6 +56,9 @@ a [class^=icon-] {
 
 body {
     margin: 0;
+    background: #c2baaf url(../images/wallpaper-white.jpg) no-repeat center;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 * {
@@ -59,6 +70,7 @@ a {
 }
 
 .site-wrapper {
+    background-color: #fff;
     min-width: 980px;
     width: 980px;
     max-width: 980px;
@@ -73,13 +85,14 @@ a {
 }
 
 .header-wrapper {
-    padding: 0;
     color: #6d5160;
     background-color: #edeae1;
+    padding: 0;
 }
 
 .container {
     padding: 0 20px 0 20px;
+    overflow: auto;
 }
 
 .container::before .container::after {
@@ -377,7 +390,8 @@ ul.pager>li>a {
     color: #000;
 }
 
-.sidebar a>span, .wrapper.blog a {
+.sidebar a>span,
+.wrapper.blog a {
     text-decoration: underline;
 }
 
@@ -389,3 +403,109 @@ ul.pager>li>a {
 .sidebar .share-box ul>li i+span {
     margin-left: 8px;
 }
+
+.footer-wrapper {
+    color: #000;
+    background-color: #fff;
+    height: auto;
+    border-radius: 0 0 10px 10px;
+}
+
+.footer-wrapper>.container {
+    border-top: 1px solid rgba(0, 0, 0, .2);
+    padding: 32px 0 22px 0;
+    margin: 0 20px;
+}
+
+.footer-wrapper .footer-info {
+    float: left;
+    max-width: 75%;
+    font-size: 16px;
+}
+
+.footer-wrapper .footer-page-counter {
+    float: right;
+    margin: 0 0 16px 0;
+}
+
+.footer-wrapper .footer-page-counter .footer-page-counter-item {
+    background: #fff;
+    font-size: 14.4px;
+    font-family: Arial, sans-serif;
+    line-height: 14.4px;
+    padding: 2px 2px 1px;
+    margin: 3px 2px 0 0;
+    border: solid 0 #000;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px #595959;
+    float: left;
+    text-align: center;
+    font-weight: 700;
+    width: 10px;
+    position: relative;
+}
+
+.footer-wrapper .footer-page-counter .footer-page-counter-item::before {
+    content: "";
+    display: block;
+    height: 1px;
+    position: absolute;
+    top: 52%;
+    left: 0;
+    margin-top: -1px;
+    background: rgba(0, 0, 0, .25);
+    width: 100%;
+}
+/****************About*****************/
+body .wrapper .content .row-fluid {
+    width: 100%;
+}
+
+body .wrapper .content .row-fluid.padding-all {
+    margin-left: 20px;
+}
+
+body .row-fluid.margins-topbottom {
+    margin: 20px 0px;
+}
+
+.row-fluid .span12 {
+    width: 100%;
+}
+
+body .section.margins-on {
+    padding: 20px 20px 20px 0;
+    margin: 0;
+}
+
+.section>.heading {
+    font-size: 20px;
+    padding: 9.6px 0;
+    margin: 0;
+}
+
+.section>.heading h3 {
+    font-family: Arial, sans-serif;
+    font-weight: 800;
+    line-height: 32.8px;
+    margin: 0;
+}
+
+.wordwrapfix {
+    word-wrap: break-word;
+}
+
+.section:first-child>.heading+.content {
+    padding-top: 11px;
+}
+
+.section:last-child {
+    border-bottom: 0;
+}
+
+.signature .signature-text-noimg .signature-sign {
+    font-family: 'Pacifico', serif;
+    font-size: 40px;
+    line-height: 60px;
+}
+/****************Overview*********************/
