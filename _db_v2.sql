@@ -57,3 +57,12 @@ And live like it''s heaven on earth."','', 'William W. Purkey'),
 select * from BlogPosts
 
 select top(3) p.id, p.title, p.dc, p.blog_type, p.content, p.img, p.author, t.icon_class from BlogPosts as p join BlogTypes as t on p.blog_type=t.id order by p.dc desc
+
+create table about (
+    dc datetime default getdate() not null,
+    content text not null
+)
+
+select * from about
+
+drop table about

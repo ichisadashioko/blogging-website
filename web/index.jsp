@@ -29,7 +29,7 @@
 					<div class="title-wrapper">
 						<div class="title-wrapper-inner">
 							<div class="title">
-								<a href="index.jsp" class="title title-link">Blogging About By Life</a>
+								<a class="title title-link">Blogging About By Life</a>
 							</div>
 							<div class="subtitle">Welcome to my blog</div>
 						</div>
@@ -37,7 +37,7 @@
 				</div>
 				<!-- this is the menu content -->
 				<div class="navbar">
-					<a class="active" href="">My Blog</a>
+					<a class="active">My Blog</a>
 					<a href="about.jsp">About Me</a>
 				</div>
 			</div>
@@ -84,9 +84,9 @@
 								</div>
 								<div class="content">
 									<div><ul>
-											<li><a href="" id="share-facebook"><i class="icon-facebook-sign"></i><span>Share on Facebook</span></a></li>
-											<li><a href="" id="share-twitter"><i class="icon-twitter-sign"></i><span>Share on Twitter</span></a></li>
-									</ul></div>
+											<li><a id="share-facebook"><i class="icon-facebook-sign"></i><span>Share on Facebook</span></a></li>
+											<li><a id="share-twitter"><i class="icon-twitter-sign"></i><span>Share on Twitter</span></a></li>
+										</ul></div>
 								</div>
 							</div>
 						</div>
@@ -108,6 +108,6 @@
 				</div>
 			</div>
 		</div>
-</body>
+	</body>
 
 </html>

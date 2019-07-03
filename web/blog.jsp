@@ -78,8 +78,8 @@
 								<div class="content">
 									<div>
 										<ul>
-											<li><a href="" id="share-facebook"><i class="icon-facebook-sign"></i><span>Share on Facebook</span></a></li>
-											<li><a href="" id="share-twitter"><i class="icon-twitter-sign"></i><span>Share on Twitter</span></a></li>
+											<li><a id="share-facebook"><i class="icon-facebook-sign"></i><span>Share on Facebook</span></a></li>
+											<li><a id="share-twitter"><i class="icon-twitter-sign"></i><span>Share on Twitter</span></a></li>
 										</ul>
 									</div>
 								</div>
