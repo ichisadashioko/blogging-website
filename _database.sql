@@ -9,7 +9,8 @@ DROP TABLE POSTS
 GO
 
 CREATE TABLE visit_history (
-	id char(32) not null primary key,
+	--id char(32) not null primary key,
+	ip nvarchar(15) not null,
 	time_visit DATETIME not null,
 	request_url TEXT not null
 )
@@ -43,6 +44,16 @@ select * from post_types
 -- a table to store all type of posts with their (heading, date_create, type) with auto id increase
 drop table posts
 
+CREATE TABLE BlogPosts (
+    id INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+    title nvarchar(256) NOT NULL,
+    dc DATETIME NOT NULL DEFAULT GETDATE(),
+    blog_type varchar(32) NOT NULL REFERENCES BlogTypes(id),
+    content TEXT,
+    img TEXT,
+    author TEXT
+)
+
 create table posts (
 	id char(32) not null primary key,
 	heading text not null,
@@ -54,6 +65,21 @@ select * from posts
 
 delete from posts where id=1
 
+select top(2) p.id, p.heading, p.dc, p.p_type, pt.icon_class
+from posts as p join post_types as pt on p.p_type = pt.p_type
+order by p.dc desc
+
+select top(2) p.id, p.heading, p.dc, p.p_type, pt.icon_class from posts as p join post_types as pt on p.p_type = pt.p_type order by p.dc desc
+
+select top(2) p.id, p.heading, p.dc, p.p_type,
+	case when p.p_type='article' then a.content, a.img
+	case when p.p_type='quote' then q.content, q.author
+	case when p.p_type='photo' then pt.img
+from posts as p 
+	left join articles as a on p.id=a.id
+	left join quotes as q on p.id=q.id
+	left join photos as pt on p.id=pt.id
+order by p.dc desc
 
 insert into posts (id, heading, dc, p_type) values
 ('94f625560dee7c12a8d3e3548efe6306', 'Essential skills for a happy life!', '20151116 23:50:00', 'article'),

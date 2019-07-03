@@ -4,6 +4,10 @@
 		<param-name>cs</param-name>
 		<param-value>jdbc:sqlserver://localhost:2222;databaseName=PTestDatabase;integratedSecurity=true;</param-value>
 	</context-param>
+	<context-param>
+		<param-name>index_top</param-name>
+		<param-value>3</param-value>
+	</context-param>
 	<session-config>
 		<session-timeout>
 			5
