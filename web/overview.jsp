@@ -71,7 +71,7 @@
 												%>
 												<tr>
 													<td>
-														<a href="blog.jsp&id=<%=p.getId()%>"><%=p.getHeading()%></a>
+														<a href="blog.jsp?id=<%=p.getId()%>"><%=p.getHeading()%></a>
 													</td>
 													<td><i class="icon-thumbs-up"></i> 0</td>
 													<td><i class="icon-comment"></i> 0</td>
