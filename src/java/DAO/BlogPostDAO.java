@@ -107,4 +107,42 @@ public class BlogPostDAO {
 		}
 		return null;
 	}
+
+	public static int numPosts(String cs) throws Exception {
+		Connection conn = DBContext.getConnection(cs);
+		String sql = "select count(*) as c from BlogPosts";
+		PreparedStatement ps = conn.prepareStatement(sql);
+
+		ResultSet rs = ps.executeQuery();
+
+		int retval = 0;
+		if (rs.next()) {
+			retval = rs.getInt("c");
+		}
+		return retval;
+	}
+
+	public static List<Post> select(String cs, int startIdx, int endIdx) throws Exception {
+		Connection conn = DBContext.getConnection(cs);
+		String sql = "select * from (select ROW_NUMBER() over(order by dc desc) as rownum, id, title, dc from BlogPosts) as s where s.rownum > ? and s.rownum <= ?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setInt(1, startIdx);
+		ps.setInt(2, endIdx);
+		ResultSet rs = ps.executeQuery();
+		
+		List<Post> postList = new ArrayList<>();
+		
+		while(rs.next()){
+			Post p = new Post();
+			int id = rs.getInt("id");
+			String title = rs.getString("title");
+			java.util.Date dc = rs.getTimestamp("dc");
+			p.setId(id);
+			p.setHeading(title);
+			p.setDc(dc);
+			
+			postList.add(p);
+		}
+		return postList;
+	}
 }

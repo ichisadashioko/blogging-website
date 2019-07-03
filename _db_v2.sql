@@ -58,6 +58,15 @@ select * from BlogPosts
 
 select top(3) p.id, p.title, p.dc, p.blog_type, p.content, p.img, p.author, t.icon_class from BlogPosts as p join BlogTypes as t on p.blog_type=t.id order by p.dc desc
 
+select * from (
+select ROW_NUMBER() over(order by dc desc) as rownum, id, title, dc, blog_type, content, img, author
+from BlogPosts
+) as s
+where s.rownum > 1 and s.rownum < 5
+
+select * from (select ROW_NUMBER() over(order by dc desc) as rownum, id, title, dc from BlogPosts) as s where s.rownum >= 1 and s.rownum < 5
+
+
 create table about (
     dc datetime default getdate() not null,
     content text not null

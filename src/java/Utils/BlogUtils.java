@@ -1,5 +1,7 @@
 package Utils;
 
+import Models.*;
+import Views.*;
 import java.util.*;
 
 public class BlogUtils {
@@ -43,11 +45,54 @@ public class BlogUtils {
 			}
 		} else {
 			int remainder = visitorCount;
-            while(remainder > 0){
+			while (remainder > 0) {
 				retval.add(0, remainder % 10);
 				remainder /= 10;
 			}
-			
+
+		}
+		return retval;
+	}
+	public static final String[] MONTH_TO_STRING = {
+		"JANUARY",
+		"FEBRURY",
+		"MARCH",
+		"APRIL",
+		"MAY",
+		"JUNE",
+		"JULY",
+		"AUGUST",
+		"SEPTEMBER",
+		"OCTOBER",
+		"NOVEMBER",
+		"DECEMBER",};
+
+	public static List<MonthlyEntry> filterPostList(List<Post> postList) {
+		List<MonthlyEntry> retval = new ArrayList<>();
+		MonthlyEntry me = null;
+		List<Post> mePostList = null;
+		int curDateTime = -1;
+		for (int i = 0; i < postList.size(); i++) {
+			Post p = postList.get(i);
+			int postTimestamp = p.getDc().getYear() * 100 + p.getDc().getMonth();
+			if (postTimestamp == curDateTime) {
+				mePostList.add(p);
+			} else {
+				// set current month and year
+				curDateTime = postTimestamp;
+				// format
+				String timestampStr = String.format("%s %d", MONTH_TO_STRING[p.getDc().getMonth()], p.getDc().getYear() + 1990);
+				// create new entry
+				me = new MonthlyEntry();
+				retval.add(me);
+				// set title
+				me.setTimestamp(timestampStr);
+				// the post list
+				mePostList = new ArrayList<Post>();
+				// append the current post to the post list
+				mePostList.add(p);
+				me.setPostList(mePostList);
+			}
 		}
 		return retval;
 	}

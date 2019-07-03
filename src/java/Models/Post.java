@@ -3,14 +3,16 @@ package Models;
 import java.util.*;
 import Utils.*;
 
-public abstract class Post {
+public class Post {
 
 	private int id;
 	private String heading;
 	private String iconClass;
 	private Date dc;
 
-	public abstract String generateContentHtml();
+	public String generateContentHtml() {
+		return "";
+	}
 
 	public String getDate() {
 		return BlogUtils.formatDate(dc);

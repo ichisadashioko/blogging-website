@@ -12,6 +12,10 @@
 		<param-name>min_counter_digits</param-name>
 		<param-value>6</param-value>
 	</context-param>
+	<context-param>
+		<param-name>num_per_page</param-name>
+		<param-value>16</param-value>
+	</context-param>
 	<session-config>
 		<session-timeout>
 			5
