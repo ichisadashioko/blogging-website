@@ -9,6 +9,7 @@ if __name__ == "__main__":
     # print(m.digest())
     # x = 'Essential skills for a happy life!20151116 23:50:00article'
     # x = 'You\'ve gotta dance20151116 15:50:00quote'
-    x = 'Photo20151116 07:50:00photo'
+    # x = 'Photo20151116 07:50:00photo'
+    x = 'LAB321-Blogging'
     print(x)
     print(hashlib.md5(x.encode('utf-8')).hexdigest())
