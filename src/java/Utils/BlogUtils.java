@@ -10,6 +10,14 @@ public class BlogUtils {
 		int year = d.getYear() + 1990;
 		int month = d.getMonth() + 1;
 		int date = d.getDate();
+		String retval = String.format("%d-%02d-%02d", year, month, date);
+		return retval;
+	}
+
+	public static String formatDNDate(Date d) {
+		int year = d.getYear() + 1990;
+		int month = d.getMonth() + 1;
+		int date = d.getDate();
 		int hours = d.getHours();
 		int minutes = d.getMinutes();
 		String suffix;
