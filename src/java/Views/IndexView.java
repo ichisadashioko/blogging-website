@@ -3,10 +3,10 @@ package Views;
 import Models.*;
 import java.util.*;
 
-public class IndexView {
+public class IndexView extends BaseView{
 
 	private List<Post> posts;
-	private int visitorCount;
+	private List<Integer> pageCounterItems;
 
 	public List<Post> getPosts() {
 		return posts;
@@ -15,13 +15,4 @@ public class IndexView {
 	public void setPosts(List<Post> posts) {
 		this.posts = posts;
 	}
-
-	public int getVisitorCount() {
-		return visitorCount;
-	}
-
-	public void setVisitorCount(int visitorCount) {
-		this.visitorCount = visitorCount;
-	}
-
 }

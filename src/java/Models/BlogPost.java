@@ -27,13 +27,15 @@ public class BlogPost extends Post {
 	public String generateContentHtml() {
 		StringBuilder sb = new StringBuilder("");
 		if (!img.isEmpty()) {
-			sb.append("<div class=\"image\"><img src=\"" + img + "\"></div></div>");
+			sb.append("<div class=\"image\"><img src=\"" + img + "\"></div>");
 		}
 		String[] ps = content.split("[\n\r]+");
 		for (String p : ps) {
 			sb.append("<p>" + p + "</p>");
-
 		}
-		return sb.toString();
+//		sb.append("</div>");
+		String retval = sb.toString();
+//		System.out.println(retval);
+		return retval;
 	}
 }
