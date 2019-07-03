@@ -626,3 +626,8 @@ body .content-wrapper .wrapper>.content:first-child {
     margin-top: 0;
     padding-top: 0;
 }
+
+/**************Blog 2**************/
+.section>.controls {
+    padding: 9.6px 0;
+}
