@@ -1,0 +1,23 @@
+# .gitignore
+*.zip
+*.jpg
+*.png
+
+trash
+images
+*.ipynb
+.ipynb_checkpoints
+
+nbproject
+build
+lib
+test
+
+src/conf
+
+build.xml
+
+#*.jsp
+# src
+
+context.xml
