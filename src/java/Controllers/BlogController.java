@@ -8,32 +8,30 @@ import javax.servlet.http.*;
 import DAO.*;
 import Utils.*;
 
-public class IndexController{
+public class BlogController {
 
-	public static IndexView getViewContent(ServletContext context, HttpServletRequest request) {
-		IndexView iv = new IndexView();
-		List<Post> postList = null;
+	public static BlogView getViewContent(ServletContext context, HttpServletRequest request) {
+		BlogView view = new BlogView();
+		Post post = null;
 		List<Integer> counterItems = new ArrayList<>();
 		int visitorCount = 0;
 
 		try {
 			String cs = context.getInitParameter("cs");
-			int topCount = Integer.parseInt(context.getInitParameter("index_top"));
-
-			postList = BlogPostDAO.getIndexTop(cs, topCount);
-
 			int minDigits = Integer.parseInt(context.getInitParameter("min_counter_digits"));
 			visitorCount = StatDAO.visitorCount(cs);
 			counterItems = BlogUtils.generateCounterItems(visitorCount, minDigits);
 			
 			StatDAO.newVisitor(cs, request.getRemoteAddr(), request.getRequestURI(), new java.util.Date());
+			
+			int id = Integer.parseInt(request.getParameter("id"));
+			post = BlogPostDAO.select(cs, id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		iv.setPosts(postList);
-		iv.setPageCounterItems(counterItems);
-		return iv;
+		view.setPost(post);
+		view.setPageCounterItems(counterItems);
+		return view;
 	}
-
 }

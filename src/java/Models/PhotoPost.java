@@ -14,7 +14,8 @@ public class PhotoPost extends Post {
 
 	@Override
 	public String generateContentHtml() {
-		String retval = "<div class=\"img-simple\"><div class=\"image\"><img src=\"" + img + "\" alt=\"\"></div></div>";
+		String retval = "<div class=\"img-simple\"><div class=\"image\"><img src=\"" + img + "\"/></div></div>";
+//		System.out.println(retval);
 		return retval;
 	}
 }

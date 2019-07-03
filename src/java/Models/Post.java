@@ -1,6 +1,7 @@
 package Models;
 
 import java.util.*;
+import Utils.*;
 
 public abstract class Post {
 
@@ -10,6 +11,10 @@ public abstract class Post {
 	private Date dc;
 
 	public abstract String generateContentHtml();
+
+	public String getDate() {
+		return BlogUtils.formatDate(dc);
+	}
 
 	public int getId() {
 		return id;
@@ -42,5 +47,4 @@ public abstract class Post {
 	public void setIconClass(String iconClass) {
 		this.iconClass = iconClass;
 	}
-
 }

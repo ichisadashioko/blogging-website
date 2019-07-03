@@ -31,7 +31,9 @@ public class QuotePost extends Post {
 		sb.append(quoteHtml);
 		quoteHtml = "</p><small><cite>" + author + "</cite></small></blockquote>";
 		sb.append(quoteHtml);
-		return sb.toString();
+		String retval = sb.toString();
+//		System.out.println(retval);
+		return retval;
 	}
 
 }

@@ -1,6 +1,22 @@
 use Blogging
 
 
+CREATE TABLE visit_history (
+	--id char(32) not null primary key,
+	ip nvarchar(128) not null,
+	time_visit DATETIME not null,
+	request_url TEXT not null
+)
+
+drop table visit_history
+
+select * from visit_history
+
+select count(time_visit) as c from visit_history
+
+select count(*) as c from visit_history
+
+
 drop table BlogTypes
 
 CREATE TABLE BlogTypes(
@@ -39,3 +55,5 @@ And live like it''s heaven on earth."','', 'William W. Purkey'),
 ('Photo', '20151116 07:50:00', 'photo', '', 'images/i283445314544979644._szw1280h1280_.jpg', '')
 
 select * from BlogPosts
+
+select top(3) p.id, p.title, p.dc, p.blog_type, p.content, p.img, p.author, t.icon_class from BlogPosts as p join BlogTypes as t on p.blog_type=t.id order by p.dc desc
