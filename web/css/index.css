@@ -24,6 +24,12 @@
     font-style: normal;
 }
 
+[class^=icon-]::before,
+[class*=" icon-"]::before {
+    text-decoration: inherit;
+    display: inline-block;
+}
+
 a [class^=icon-] {
     display: inline;
 }
@@ -191,6 +197,7 @@ a.title:hover {
     margin-left: 2.12765957%;
 }
 
+/* only require h1,h3,h4*/
 .wrapper>.heading h1,
 .section>.heading h1,
 .item>.heading h1,
@@ -426,12 +433,8 @@ ul.pager>li>a {
 }
 
 .content-wrapper a,
-.sidebar a>span {
+.sidebar a {
     color: #000;
-}
-
-.sidebar a>span,
-.wrapper.blog a {
     text-decoration: underline;
 }
 
@@ -626,7 +629,16 @@ body .content-wrapper .wrapper>.content:first-child {
     padding-top: 0;
 }
 
+
 /**************Blog 2**************/
+
 .section>.controls {
     padding: 9.6px 0;
+}
+
+
+/***************Overview***********/
+
+.blogoverview .section {
+    border-bottom: 0;
 }

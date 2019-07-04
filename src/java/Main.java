@@ -9,11 +9,11 @@ public class Main {
 
 	public static void main(String[] args) throws Exception {
 		// us-123my-life.simplesite.com
-		populateBlogPosts();
+		populateBlogPosts(100);
 
 	}
 
-	public static final char[] subset = "0123456789abcdefghijklmnopqrstuvwxyz".toCharArray();
+	public static final char[] subset = "0123456789abcdefghijklmnopqrstuvwxyz ".toCharArray();
 
 	public static Random r = new Random();
 
@@ -26,8 +26,8 @@ public class Main {
 		return new String(buf);
 	}
 
-	public static void populateBlogPosts() throws Exception {
-		for (int i = 0; i < 50; i++) {
+	public static void populateBlogPosts(int size) throws Exception {
+		for (int i = 0; i < size; i++) {
 			// year between 2000 and 2010
 			// month between 1 and 12
 			// date between 1 and 28
