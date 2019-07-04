@@ -8,6 +8,8 @@
 	OverviewView pageView = OverviewController.getViewContent(context, request);
 	List<MonthlyEntry> entryList = pageView.getEntryList();
 	List<Integer> pageCounterItems = pageView.getPageCounterItems();
+	int numPages = pageView.getNumPages();
+	int pageNum = pageView.getPageNum();
 %>
 <%@page contentType="text/html" pageEncoding="utf-8"%>
 <!DOCTYPE html5>
@@ -15,6 +17,7 @@
 	<head>
 		<title>Overview</title>
 		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<script src="js/overview.js"></script>
 	</head>
 
 	<body>
@@ -84,6 +87,7 @@
 								</div>
 								<%}%>
 							</div>
+							<div class="page-container">Page <select id="page-control"><%for(int i=1;i<=numPages;i++){if(i==pageNum){%><option value="<%=i%>" selected><%=i%></option><%}else{%><option value="<%=i%>"><%=i%></option><%}}%></select> of <%=numPages%></div>
 						</div>
 					</div>
 					<div id="right" class="span3">

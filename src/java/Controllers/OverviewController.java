@@ -14,6 +14,8 @@ public class OverviewController {
 		OverviewView view = new OverviewView();
 		List<Integer> counterItems = new ArrayList<>();
 		int visitorCount = 0;
+		int numPages = 0;
+		int pageNum = 0;
 		
 		List<MonthlyEntry> entryList = new ArrayList<>();
 
@@ -27,9 +29,9 @@ public class OverviewController {
 
 			int numPerPage = Integer.parseInt(context.getInitParameter("num_per_page"));
 			int numPosts = BlogPostDAO.numPosts(cs);
-			int numPages = (int) Math.ceil((double) numPosts / (double) numPerPage);
+			numPages = (int) Math.ceil((double) numPosts / (double) numPerPage);
 
-			int pageNum = 1;
+			pageNum = 1;
 
 			try {
 				pageNum = Integer.parseInt(request.getParameter("page"));
@@ -47,6 +49,8 @@ public class OverviewController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		view.setNumPages(numPages);
+		view.setPageNum(pageNum);
 		view.setEntryList(entryList);
 		view.setPageCounterItems(counterItems);
 		return view;
