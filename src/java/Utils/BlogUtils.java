@@ -3,21 +3,25 @@ package Utils;
 import Models.*;
 import Views.*;
 import java.util.*;
+import java.time.*;
 
 public class BlogUtils {
 
 	public static String formatDate(Date d) {
-		int year = d.getYear() + 1990;
-		int month = d.getMonth() + 1;
-		int date = d.getDate();
-		String retval = String.format("%d-%02d-%02d", year, month, date);
+		LocalDate ld = d.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		int year = ld.getYear();
+		int month = ld.getMonthValue();
+		int date = ld.getDayOfMonth();
+		String retval = String.format("%02d-%02d-%04d", date, month, year);
 		return retval;
 	}
 
 	public static String formatDNDate(Date d) {
-		int year = d.getYear() + 1990;
-		int month = d.getMonth() + 1;
-		int date = d.getDate();
+		LocalDate ld = d.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		int year = ld.getYear();
+		int month = ld.getMonthValue();
+		int date = ld.getDayOfMonth();
+
 		int hours = d.getHours();
 		int minutes = d.getMinutes();
 		String suffix;
@@ -32,9 +36,10 @@ public class BlogUtils {
 	}
 
 	public static String formatSQLDate(Date d) {
-		int year = d.getYear() + 1990;
-		int month = d.getMonth() + 1;
-		int date = d.getDate();
+		LocalDate ld = d.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		int year = ld.getYear();
+		int month = ld.getMonthValue();
+		int date = ld.getDayOfMonth();
 		int hours = d.getHours();
 		int minutes = d.getMinutes();
 		int sec = d.getSeconds();
@@ -89,7 +94,8 @@ public class BlogUtils {
 				// set current month and year
 				curDateTime = postTimestamp;
 				// format
-				String timestampStr = String.format("%s %d", MONTH_TO_STRING[p.getDc().getMonth()], p.getDc().getYear() + 1990);
+				LocalDate ld = p.getDc().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+				String timestampStr = String.format("%s %d", MONTH_TO_STRING[p.getDc().getMonth()], ld.getYear());
 				// create new entry
 				me = new MonthlyEntry();
 				retval.add(me);

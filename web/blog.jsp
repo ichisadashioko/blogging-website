@@ -76,12 +76,10 @@
 									<h4>Share this page</h4>
 								</div>
 								<div class="content">
-									<div>
-										<ul>
+									<div><ul>
 											<li><a id="share-facebook"><i class="icon-facebook-sign"></i><span>Share on Facebook</span></a></li>
 											<li><a id="share-twitter"><i class="icon-twitter-sign"></i><span>Share on Twitter</span></a></li>
-										</ul>
-									</div>
+										</ul></div>
 								</div>
 							</div>
 						</div>
@@ -94,7 +92,7 @@
 				<div class="container">
 					<div class="footer-info">
 						<div class="footer-info-text">
-							This website was created with SimpleSite
+							Made with &hearts;
 						</div>
 					</div>
 					<div class="footer-page-counter">
