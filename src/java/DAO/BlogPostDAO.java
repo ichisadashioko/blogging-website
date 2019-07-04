@@ -129,10 +129,10 @@ public class BlogPostDAO {
 		ps.setInt(1, startIdx);
 		ps.setInt(2, endIdx);
 		ResultSet rs = ps.executeQuery();
-		
+
 		List<Post> postList = new ArrayList<>();
-		
-		while(rs.next()){
+
+		while (rs.next()) {
 			Post p = new Post();
 			int id = rs.getInt("id");
 			String title = rs.getString("title");
@@ -140,9 +140,55 @@ public class BlogPostDAO {
 			p.setId(id);
 			p.setHeading(title);
 			p.setDc(dc);
-			
+
 			postList.add(p);
 		}
 		return postList;
+	}
+
+	public static void insertPost(BlogPost p, String datetimeStr) throws Exception {
+		String cs = "jdbc:sqlserver://localhost:2222;databaseName=Blogging;integratedSecurity=true;";
+		Connection conn = DBContext.getConnection(cs);
+		String sql = "insert into BlogPosts(title, dc, blog_type, content, img, author) values (?, ?, ?, ?, ?, ?)";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, p.getHeading());
+		ps.setString(2, datetimeStr);
+		ps.setString(3, "article");
+		ps.setString(4, p.getContent());
+		if (p.getImg() == null) {
+			ps.setString(5, "");
+		} else {
+			ps.setString(5, p.getImg());
+		}
+		ps.setString(6, "");
+		ps.executeUpdate();
+	}
+
+	public static void insertPost(PhotoPost p, String datetimeStr) throws Exception {
+		String cs = "jdbc:sqlserver://localhost:2222;databaseName=Blogging;integratedSecurity=true;";
+		Connection conn = DBContext.getConnection(cs);
+		String sql = "insert into BlogPosts(title, dc, blog_type, content, img, author) values (?, ?, ?, ?, ?, ?)";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, p.getHeading());
+		ps.setString(2, datetimeStr);
+		ps.setString(3, "photo");
+		ps.setString(4, "");
+		ps.setString(5, p.getImg());
+		ps.setString(6, "");
+		ps.executeUpdate();
+	}
+
+	public static void insertPost(QuotePost p, String datetimeStr) throws Exception {
+		String cs = "jdbc:sqlserver://localhost:2222;databaseName=Blogging;integratedSecurity=true;";
+		Connection conn = DBContext.getConnection(cs);
+		String sql = "insert into BlogPosts(title, dc, blog_type, content, img, author) values (?, ?, ?, ?, ?, ?)";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, p.getHeading());
+		ps.setString(2, datetimeStr);
+		ps.setString(3, "quote");
+		ps.setString(4, p.getQuote());
+		ps.setString(5, "");
+		ps.setString(6, p.getAuthor());
+		ps.executeUpdate();
 	}
 }

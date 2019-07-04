@@ -75,3 +75,5 @@ create table about (
 select * from about
 
 drop table about
+
+insert into BlogPosts(title, dc, blog_type, content, img, author) values ()
