@@ -3,6 +3,8 @@ import os
 import re
 import time
 
+import argparse
+
 code_extensions = [
     '.java',
     # '.html',
@@ -11,6 +13,7 @@ code_extensions = [
     '.jsp',
     '.sql',
     '.svg',
+    '.base64',
 ]
 ignore_files = ['build', 'test']
 
@@ -39,5 +42,10 @@ def count_file(path):
 
 
 if __name__ == "__main__":
-    chars_count = count_file('.')
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-i', type=str, default='.')
+    args = parser.parse_args()
+
+    filepath = args.i
+    chars_count = count_file(filepath)
     print('chars_count:', chars_count)

@@ -197,17 +197,14 @@ a.title:hover {
     margin-left: 2.12765957%;
 }
 
+
 /* only require h1,h3,h4*/
+
 .wrapper>.heading h1,
 .section>.heading h1,
 .item>.heading h1,
 .sidebar .wrapper>.heading h1,
 .sidebar .section>.heading h1,
-.wrapper>.heading h2,
-.section>.heading h2,
-.item>.heading h2,
-.sidebar .wrapper>.heading h2,
-.sidebar .section>.heading h2,
 .wrapper>.heading h3,
 .section>.heading h3,
 .item>.heading h3,
@@ -217,17 +214,7 @@ a.title:hover {
 .section>.heading h4,
 .item>.heading h4,
 .sidebar .wrapper>.heading h4,
-.sidebar .section>.heading h4,
-.wrapper>.heading h5,
-.section>.heading h5,
-.item>.heading h5,
-.sidebar .wrapper>.heading h5,
-.sidebar .section>.heading h5,
-.wrapper>.heading h6,
-.section>.heading h6,
-.item>.heading h6,
-.sidebar .wrapper>.heading h6,
-.sidebar .section>.heading h6 {
+.sidebar .section>.heading h4 {
     margin: 0
 }
 
